@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Add, Remove } from '@mui/icons-material/'
+import { useGlobalContext } from './context'
 
 const Container = styled.div`
   display: flex;
@@ -96,9 +97,7 @@ const QuaIncPlus = styled.div`
     color: white;
   }
 `
-
 const BUTTONWRAP = styled.div``
-
 const BUTTON = styled.button`
   font-size: 0.8rem;
   font-weight: 700;
@@ -115,6 +114,26 @@ const BUTTON = styled.button`
 `
 const CardItem = ({ eachContent }) => {
   const { name, img, desc, price, time, avai } = eachContent
+  const { closeModal, addToCart, openCart } = useGlobalContext()
+
+  const handleClick = () => {
+    closeModal()
+    openCart()
+    addToCart(eachContent)
+  }
+
+  const [count, setCount] = useState(1)
+
+  const handleNumber = () => {}
+
+  const handleDec = () => {
+    setCount(count - 1)
+  }
+
+  const handleInc = () => {
+    setCount(count + 1)
+  }
+
   return (
     <Container>
       <ContainerItem>
@@ -133,17 +152,17 @@ const CardItem = ({ eachContent }) => {
         <LastSectionWrapper>
           <QuaIncDec>
             <QuaIncDecWrap>
-              <QuaIncDecMinus>
+              <QuaIncDecMinus onClick={handleDec}>
                 <Remove />
               </QuaIncDecMinus>
-              <QuaIncNum>3</QuaIncNum>
-              <QuaIncPlus>
+              <QuaIncNum>{count}</QuaIncNum>
+              <QuaIncPlus onClick={handleInc}>
                 <Add />
               </QuaIncPlus>
             </QuaIncDecWrap>
           </QuaIncDec>
           <BUTTONWRAP>
-            <BUTTON>Add to cart</BUTTON>
+            <BUTTON onClick={handleClick}>Add to cart</BUTTON>
           </BUTTONWRAP>
         </LastSectionWrapper>
       </LastSection>

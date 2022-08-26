@@ -3,6 +3,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import DLogo from '../Pictures/Download Badge/Logo.svg'
+import { useGlobalContext } from './context'
 
 const MainContainer = styled.div`
   display: flex;
@@ -104,7 +105,17 @@ const P2 = styled.div`
 `
 
 function SideBar() {
+  const { openCart, inCart, openOrder } = useGlobalContext()
+
   const navigate = useNavigate()
+
+  const handleShowCart = () => {
+    openCart()
+  }
+
+  const handleShowOrder = () => {
+    openOrder()
+  }
   return (
     <MainContainer>
       <Wrapper>
@@ -120,7 +131,7 @@ function SideBar() {
             <AccountCircle />
             <SectionTitle>Your Profile</SectionTitle>
           </Homepage>
-          <Profile>
+          <Profile onClick={handleShowOrder}>
             <ContentWrapper>
               <ViewStream />
               <SectionTitle>Orders</SectionTitle>
@@ -129,13 +140,13 @@ function SideBar() {
               <P>6</P>
             </TextWrap>
           </Profile>
-          <Profile>
+          <Profile onClick={handleShowCart}>
             <ContentWrapper>
               <Bookmark />
               <SectionTitle>Your Cart</SectionTitle>
             </ContentWrapper>
             <TextWrap>
-              <P2>6</P2>
+              <P2>{inCart.length}</P2>
             </TextWrap>
           </Profile>
         </Content>

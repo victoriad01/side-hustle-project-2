@@ -51,7 +51,6 @@ const GooglePlay = styled.img`
   margin-right: 20px;
 `
 const ApplePlay = styled.img`
-  /* object-fit: contain; */
   cursor: pointer;
 `
 const SectionTwoRight = styled.div`
@@ -235,7 +234,6 @@ function Home() {
           </ParaFood>
           <ThreeFoodSection>
             {foodsOfTwelve.slice(0, 3).map((eachEach) => {
-              console.log(eachEach.id)
               return <Card eachEach={eachEach} key={eachEach.id} />
             })}
           </ThreeFoodSection>

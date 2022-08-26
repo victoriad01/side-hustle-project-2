@@ -7,6 +7,7 @@ import CardWithPrice from '../Components/CardWithPrice'
 import { useGlobalContext } from '../Components/context'
 import { Close } from '@mui/icons-material/'
 import CardItem from '../Components/CardItem'
+import CartItem from '../Components/CartItem'
 
 const MainContainer = styled.div`
   display: flex;
@@ -72,13 +73,11 @@ const OverLay = styled.div`
   opacity: 0.21;
   height: 100%;
   width: 60%;
-  opacity: none;
 `
 const DOverLayWhite = styled.div`
   background-color: white;
   height: 100%;
-  width: 40%;
-  opacity: none;
+  width: 50%;
 `
 const WhiteSideContainer = styled.div`
   padding: 30px 40px 80px 40px;
@@ -90,10 +89,75 @@ const CloseDiv = styled.div`
 `
 const MainDiv = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: left;
+  align-items: center;
+  width: 100%;
 `
+const Total = styled.div`
+  display: flex;
+  margin-top: 50px;
+  padding: 15px 0px;
+  font-weight: 700;
+  justify-content: right;
+`
+const ButtonWrap = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+`
+const Button = styled.button`
+  font-size: 0.8rem;
+  font-weight: 700;
+  background-color: #00302e;
+  padding: 15px 20px;
+  border: none;
+  color: #f3c294;
+  border-radius: 5px;
+  width: 100%;
+  cursor: pointer;
+  &:hover {
+    background-color: #f3c294;
+    color: black;
+  }
+`
+
+const CheckOutMain = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+const Checkout = styled.h4`
+  margin-bottom: 20px;
+`
+const Input = styled.input`
+  margin-bottom: 20px;
+  border: 0.5px solid #fbddbb;
+  color: #00302e;
+  background-color: white;
+  border-radius: 5px;
+  margin-bottom: 40px;
+  padding: 20px;
+  width: 100%;
+`
+
 function Dashboard() {
-  const { toggle, openModal, closeModal } = useGlobalContext()
+  const {
+    toggle,
+    closeModal,
+    cart,
+    closeCart,
+    inCart,
+    closeOrder,
+    order,
+    payment,
+    openPayment,
+    closePayment,
+  } = useGlobalContext()
+
+  const handleCheckout = () => {
+    closeCart()
+    openPayment()
+  }
+
   return (
     <MainContainer>
       <SideBar />
@@ -140,6 +204,93 @@ function Dashboard() {
               </CloseDiv>
               <MainDiv>
                 <CardItem eachContent={foodsOfTwelve[toggle.item]} />
+              </MainDiv>
+            </WhiteSideContainer>
+          </DOverLayWhite>
+        </DOverLay>
+      ) : (
+        ''
+      )}
+
+      {cart.modal ? (
+        <DOverLay>
+          <OverLay></OverLay>
+          <DOverLayWhite>
+            <WhiteSideContainer>
+              <CloseDiv>
+                <Close
+                  onClick={closeCart}
+                  style={{ color: '#00302e', cursor: 'pointer' }}
+                />
+              </CloseDiv>
+              {inCart.map((eachCartItem) => {
+                return (
+                  <>
+                    <MainDiv>
+                      <CartItem
+                        eachCartItem={eachCartItem}
+                        key={eachCartItem.id}
+                      />
+                    </MainDiv>
+                  </>
+                )
+              })}
+
+              <ButtonWrap>
+                {inCart.length > 0 ? (
+                  <Button onClick={handleCheckout}>Checkout</Button>
+                ) : (
+                  'No item in your Cart at the moment. Close to add some...'
+                )}
+              </ButtonWrap>
+            </WhiteSideContainer>
+          </DOverLayWhite>
+        </DOverLay>
+      ) : (
+        ''
+      )}
+
+      {payment.modal ? (
+        <DOverLay>
+          <OverLay></OverLay>
+          <DOverLayWhite>
+            <WhiteSideContainer>
+              <CloseDiv>
+                <Close
+                  onClick={closePayment}
+                  style={{ color: '#00302e', cursor: 'pointer' }}
+                />
+              </CloseDiv>
+              <MainDiv>
+                <CheckOutMain>
+                  <Checkout>Checkout</Checkout>
+                  <Input placeholder='Card Number' />
+                  <Input placeholder='Exp Date' />
+                  <Input placeholder='CVV/CVV2' />
+                  <Input placeholder='Card Pin' />
+                  <Button>Make Payment</Button>
+                </CheckOutMain>
+              </MainDiv>
+            </WhiteSideContainer>
+          </DOverLayWhite>
+        </DOverLay>
+      ) : (
+        ''
+      )}
+
+      {order.modal ? (
+        <DOverLay>
+          <OverLay></OverLay>
+          <DOverLayWhite>
+            <WhiteSideContainer>
+              <CloseDiv>
+                <Close
+                  onClick={closeOrder}
+                  style={{ color: '#00302e', cursor: 'pointer' }}
+                />
+              </CloseDiv>
+              <MainDiv>
+                <CheckOutMain>See Your Orders Status Here!</CheckOutMain>
               </MainDiv>
             </WhiteSideContainer>
           </DOverLayWhite>

@@ -77,13 +77,10 @@ const Cart = styled.p`
     padding: 1px 0px;
   }
 `
-const Over = styled.div`
-  width: 100vh;
-  height: 100vh;
-  background-color: green;
-`
+
 function Card({ eachOfTwelve, index }) {
-  const { toggle, openModal } = useGlobalContext()
+  const { openModal } = useGlobalContext()
+
   const handleClick = () => {
     openModal(index)
   }
