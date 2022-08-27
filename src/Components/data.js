@@ -1,6 +1,9 @@
-import image1 from '../Pictures/Food2.jpg'
-import image2 from '../Pictures/Food1.jpg'
-import image3 from '../Pictures/Food3.jpg'
+import image1 from '../Pictures/Food2.png'
+import image2 from '../Pictures/Food1.png'
+import image3 from '../Pictures/Food3.png'
+import image4 from '../Pictures/Food4.png'
+import image5 from '../Pictures/Food5.png'
+import image6 from '../Pictures/Food6.png'
 
 export const foodsOfTwelve = [
   {
@@ -10,7 +13,7 @@ export const foodsOfTwelve = [
     desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem assumenda inventore sunt et debitis? Vero dicta sapiente neque voluptatum impedit quos ipsum, vitae quisquam voluptatem officiis nesciunt aliquam iste blanditiis ut laboriosam, vel odio? Voluptas.',
     price: 10,
     time: '10-30mins',
-    avai: '10 Pcs Avail',
+    avai: 10,
   },
   {
     id: 2,
@@ -19,7 +22,7 @@ export const foodsOfTwelve = [
     desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem assumenda inventore sunt et debitis? Vero dicta sapiente neque voluptatum impedit quos ipsum, vitae quisquam voluptatem officiis nesciunt aliquam iste blanditiis ut laboriosam, vel odio? Voluptas.',
     price: 9,
     time: '10-30mins',
-    avai: '16 Pcs Avail',
+    avai: 16,
   },
   {
     id: 3,
@@ -28,34 +31,34 @@ export const foodsOfTwelve = [
     desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem assumenda inventore sunt et debitis? Vero dicta sapiente neque voluptatum impedit quos ipsum, vitae quisquam voluptatem officiis nesciunt aliquam iste blanditiis ut laboriosam, vel odio? Voluptas.',
     price: 10,
     time: '10-30mins',
-    avai: '11 Pcs Avail',
+    avai: 11,
   },
   {
     id: 4,
     name: 'Stir fry Pasta',
-    img: image1,
+    img: image4,
     desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem assumenda inventore sunt et debitis? Vero dicta sapiente neque voluptatum impedit quos ipsum, vitae quisquam voluptatem officiis nesciunt aliquam iste blanditiis ut laboriosam, vel odio? Voluptas.',
     price: 8,
     time: '10-30mins',
-    avai: '16 Pcs Avail',
+    avai: 16,
   },
   {
     id: 5,
     name: 'Meat Balls',
-    img: image2,
+    img: image5,
     desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem assumenda inventore sunt et debitis? Vero dicta sapiente neque voluptatum impedit quos ipsum, vitae quisquam voluptatem officiis nesciunt aliquam iste blanditiis ut laboriosam, vel odio? Voluptas.',
     price: 12,
     time: '10-30mins',
-    avai: '19 Pcs Avail',
+    avai: 19,
   },
   {
     id: 6,
     name: 'Burger Meat',
-    img: image3,
+    img: image6,
     desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem assumenda inventore sunt et debitis? Vero dicta sapiente neque voluptatum impedit quos ipsum, vitae quisquam voluptatem officiis nesciunt aliquam iste blanditiis ut laboriosam, vel odio? Voluptas.',
     price: 9,
     time: '10-30mins',
-    avai: '14 Pcs Avail',
+    avai: 14,
   },
   {
     id: 7,
@@ -64,7 +67,7 @@ export const foodsOfTwelve = [
     desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem assumenda inventore sunt et debitis? Vero dicta sapiente neque voluptatum impedit quos ipsum, vitae quisquam voluptatem officiis nesciunt aliquam iste blanditiis ut laboriosam, vel odio? Voluptas.',
     price: 8,
     time: '10-30mins',
-    avai: '11 Pcs Avail',
+    avai: 11,
   },
   {
     id: 8,
@@ -73,7 +76,7 @@ export const foodsOfTwelve = [
     desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem assumenda inventore sunt et debitis? Vero dicta sapiente neque voluptatum impedit quos ipsum, vitae quisquam voluptatem officiis nesciunt aliquam iste blanditiis ut laboriosam, vel odio? Voluptas.',
     price: 11,
     time: '10-30mins',
-    avai: '10 Pcs Avail',
+    avai: 10,
   },
   {
     id: 9,
@@ -82,33 +85,33 @@ export const foodsOfTwelve = [
     desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem assumenda inventore sunt et debitis? Vero dicta sapiente neque voluptatum impedit quos ipsum, vitae quisquam voluptatem officiis nesciunt aliquam iste blanditiis ut laboriosam, vel odio? Voluptas.',
     price: 9,
     time: '10-30mins',
-    avai: '13 Pcs Avail',
+    avai: 13,
   },
   {
     id: 10,
     name: 'Stir fry Pasta',
-    img: image1,
+    img: image4,
     desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem assumenda inventore sunt et debitis? Vero dicta sapiente neque voluptatum impedit quos ipsum, vitae quisquam voluptatem officiis nesciunt aliquam iste blanditiis ut laboriosam, vel odio? Voluptas.',
     price: 10,
     time: '10-30mins',
-    avai: '18 Pcs Avail',
+    avai: 18,
   },
   {
     id: 11,
     name: 'Meat Balls',
-    img: image2,
+    img: image5,
     desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem assumenda inventore sunt et debitis? Vero dicta sapiente neque voluptatum impedit quos ipsum, vitae quisquam voluptatem officiis nesciunt aliquam iste blanditiis ut laboriosam, vel odio? Voluptas.',
     price: 9,
     time: '10-30mins',
-    avai: '16 Pcs Avail',
+    avai: 16,
   },
   {
     id: 12,
     name: 'Burger Meat',
-    img: image3,
+    img: image5,
     desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem assumenda inventore sunt et debitis? Vero dicta sapiente neque voluptatum impedit quos ipsum, vitae quisquam voluptatem officiis nesciunt aliquam iste blanditiis ut laboriosam, vel odio? Voluptas.',
     price: 12,
     time: '10-30mins',
-    avai: '13 Pcs Avail',
+    avai: 13,
   },
 ]

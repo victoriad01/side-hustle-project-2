@@ -115,6 +115,7 @@ const BUTTON = styled.button`
 
 const CardItem = ({ eachContent }) => {
   const { name, img, desc, price, time, avai } = eachContent
+
   const { closeModal, addToCart, openCart } = useGlobalContext()
 
   const handleClick = () => {
@@ -125,14 +126,27 @@ const CardItem = ({ eachContent }) => {
 
   const [count, setCount] = useState(1)
 
-  const handleNumber = () => {}
-
-  const handleDec = () => {
-    setCount(count - 1)
+  const confirmNum = (count) => {
+    if (count < 1) {
+      return 1
+    } else if (count >= avai) {
+      return avai
+    }
+    return count
   }
 
   const handleInc = () => {
-    setCount(count + 1)
+    setCount((count) => {
+      let newIndex = count + 1
+      return confirmNum(newIndex)
+    })
+  }
+
+  const handleDec = () => {
+    setCount((count) => {
+      let newIndex = count - 1
+      return confirmNum(newIndex)
+    })
   }
 
   return (
@@ -146,7 +160,7 @@ const CardItem = ({ eachContent }) => {
         <PriceSectionArea>
           <Price>$ {price}.00</Price>
           <Time>{time}</Time>
-          <Qua>{avai}</Qua>
+          <Qua>{avai} Pcs Avail</Qua>
         </PriceSectionArea>
       </PriceSection>
       <LastSection>

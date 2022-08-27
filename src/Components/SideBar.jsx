@@ -24,9 +24,9 @@ const Logo = styled.div`
 `
 const LogoImg = styled.img`
   margin-top: 100px;
-  width: 125px;
+  width: 150px;
   &:hover {
-    width: 150px;
+    width: 180px;
     transition: ease-in-out 1s;
   }
 `

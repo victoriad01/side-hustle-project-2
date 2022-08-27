@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import SideBar from '../Components/SideBar'
-import Ariikemi from '../Pictures/Ariikemi.jpg'
+import Ariikemi from '../Pictures/40w 1.png'
 import { foodsOfTwelve } from '../Components/data'
 import CardWithPrice from '../Components/CardWithPrice'
 import { useGlobalContext } from '../Components/context'
@@ -42,8 +42,8 @@ const ImageArea = styled.div`
 `
 const IMAGE = styled.img`
   border-radius: 50%;
-  height: 40px;
-  width: 40px;
+  height: 50px;
+  width: 50px;
   cursor: pointer;
   border: 3px solid #659492;
   box-shadow: 2px 1px 8px -2px rgba(0, 0, 0, 0.58);
@@ -170,7 +170,7 @@ function Dashboard() {
           <SectionOne>
             <TextArea>
               <WelcomeWrap>
-                <WelcomeHeader>Good morning, Ariikemi!</WelcomeHeader>
+                <WelcomeHeader>Good morning, Oghenevwede!</WelcomeHeader>
                 <WelcomeText>
                   What delicious meal are you craving today?
                 </WelcomeText>

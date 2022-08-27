@@ -25,8 +25,8 @@ const ContentWrap = styled.div`
 `
 const FoodImg = styled.img`
   margin-top: 50px;
-  height: 100px;
-  width: 100px;
+  height: 90px;
+  width: 90px;
   border-radius: 50%;
 `
 const Title = styled.h3`
@@ -45,7 +45,7 @@ const ParaText = styled.p`
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 2; /* number of lines to show */
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 `
 const PCsection = styled.div`

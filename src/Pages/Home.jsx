@@ -28,21 +28,24 @@ const SectionTwoLeft = styled.div`
 `
 const HText = styled.h2`
   font-weight: 500;
-  font-size: 40px;
-  line-height: 47px;
+  font-size: 4rem;
+  line-height: 4.4rem;
   color: #ffffff;
-  width: 450px;
+  width: 700px;
+`
+const SPAN = styled.span`
+  color: #fbddbb;
 `
 const Para = styled.p`
   margin-top: 40px;
   color: rgba(255, 255, 255, 0.74);
   font-weight: 200;
-  font-size: 0.8rem;
+  font-size: 1.125rem;
   line-height: 1.6rem;
 `
 const GetItWrapper = styled.div`
   display: flex;
-  width: 450px;
+  width: 282px;
   margin-top: 40px;
   justify-content: left;
 `
@@ -61,8 +64,8 @@ const SectionTwoRight = styled.div`
 `
 const FoodImg = styled.img`
   border-radius: 50%;
-  height: 350px;
-  width: 350px;
+  height: 400px;
+  width: 400px;
   object-fit: contain;
 `
 const FoodSection = styled.div`
@@ -91,8 +94,8 @@ const ThreeFoodSection = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-top: 80px;
-  width: 80%;
+  margin-top: 100px;
+  width: 100%;
   padding: 0px;
   margin-bottom: 120px;
 `
@@ -107,7 +110,6 @@ const UpdateLeft = styled.div`
   display: flex;
   flex: 1;
   flex-direction: column;
-  /* align-items: center; */
   justify-content: start;
 `
 const UpdateHeader = styled.h2`
@@ -211,7 +213,9 @@ function Home() {
         <Navbar />
         <SectionTwo>
           <SectionTwoLeft>
-            <HText>Order food anytime, anywhere</HText>
+            <HText>
+              Order <SPAN>food </SPAN>anytime, anywhere
+            </HText>
             <Para>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit.
               Exercitationem eius voluptatibus similique, tempora ipsum

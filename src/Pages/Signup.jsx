@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
-import ImageLe from '../Pictures/signup.jpg'
+import ImageLe from '../Pictures/signup.png'
 
 const LoginContainer = styled.div`
   display: flex;
