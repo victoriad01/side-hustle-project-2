@@ -7,6 +7,8 @@ const MainWrap = styled.div`
   flex-direction: column;
   justify-content: left;
 `
+
+
 const Row1Item = styled.div`
   display: flex;
   justify-content: space-between;
@@ -64,22 +66,24 @@ const Total = styled.div`
   font-weight: 700;
   justify-content: right;
 `
-const CartItem = ({ eachCartItem }) => {
+const CartItem = ({ eachCartItem, index }) => {
   const { inCart, setInCart } = useGlobalContext()
-  const handleRemove = (eachCartItem) => {
-    // inCart.filter((item) => item.id !== eachCartItem.id)
-    setInCart(inCart.filter((item) => item.id !== eachCartItem.id))
-  }
 
-  // const handleRemove = () => {
-  //   inCart.splice(
-  //     inCart.findIndex((item) => item._id === eachCartItem.id),
-  //     1
-  //   )
-  // }
+  const handleRemove = () => {
+    // First copy the array to a new array using inCart.slice()
+    let array = inCart.slice()
+    // Now call splice on the array
+    array.splice(index, 1)
+    // Set the State to the array
+    setInCart(array)
+
+    // Another way to go though not the best
+    // setInCart(array.filter((item) => item.id !== eachCartItem.id))
+  }
 
   return (
     <MainWrap>
+     
       <Row1Item>
         <Detail>
           <IMG>

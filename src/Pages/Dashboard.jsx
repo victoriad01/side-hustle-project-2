@@ -93,6 +93,10 @@ const MainDiv = styled.div`
   align-items: center;
   width: 100%;
 `
+const P = styled.h4`
+  margin-bottom: 20px;
+  font-weight: 600;
+`
 const Total = styled.div`
   display: flex;
   margin-top: 50px;
@@ -223,13 +227,15 @@ function Dashboard() {
                   style={{ color: '#00302e', cursor: 'pointer' }}
                 />
               </CloseDiv>
-              {inCart.map((eachCartItem) => {
+              <P>Your Cart</P>
+              {inCart.map((eachCartItem, index) => {
                 return (
                   <>
                     <MainDiv>
                       <CartItem
                         eachCartItem={eachCartItem}
                         key={eachCartItem.id}
+                        index={index}
                       />
                     </MainDiv>
                   </>
@@ -240,7 +246,7 @@ function Dashboard() {
                 {inCart.length > 0 ? (
                   <Button onClick={handleCheckout}>Checkout</Button>
                 ) : (
-                  'No item in your Cart at the moment. Close to add some...'
+                  'No item in your Cart at the moment. Close to add some by using the Add to cart that is colored green...'
                 )}
               </ButtonWrap>
             </WhiteSideContainer>

@@ -7,6 +7,7 @@ const AppProvider = ({ children }) => {
   const [order, setOrder] = useState({ modal: false, item: null })
   const [cart, setCart] = useState({ modal: false, item: null })
   const [payment, setPayment] = useState({ modal: false, item: null })
+  
   const [inCart, setInCart] = useState([])
 
   const openModal = (index) => {

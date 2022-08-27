@@ -112,6 +112,7 @@ const BUTTON = styled.button`
     color: black;
   }
 `
+
 const CardItem = ({ eachContent }) => {
   const { name, img, desc, price, time, avai } = eachContent
   const { closeModal, addToCart, openCart } = useGlobalContext()
