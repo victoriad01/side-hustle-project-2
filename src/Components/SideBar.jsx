@@ -105,7 +105,7 @@ const P2 = styled.div`
 `
 
 function SideBar() {
-  const { openCart, inCart, openOrder } = useGlobalContext()
+  const { openCart, inCart, openOrder, openOrderStore } = useGlobalContext()
 
   const navigate = useNavigate()
 
@@ -131,7 +131,7 @@ function SideBar() {
             <AccountCircle />
             <SectionTitle>Your Profile</SectionTitle>
           </Homepage>
-          <Profile onClick={handleShowOrder}>
+          <Profile onClick={openOrderStore}>
             <ContentWrapper>
               <ViewStream />
               <SectionTitle>Orders</SectionTitle>

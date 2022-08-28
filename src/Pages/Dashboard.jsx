@@ -8,6 +8,7 @@ import { useGlobalContext } from '../Components/context'
 import { Close } from '@mui/icons-material/'
 import CardItem from '../Components/CardItem'
 import CartItem from '../Components/CartItem'
+import OrderItem from '../Components/OrderItem'
 
 const MainContainer = styled.div`
   display: flex;
@@ -142,6 +143,49 @@ const Input = styled.input`
   padding: 20px;
   width: 100%;
 `
+const Order = styled.p`
+  font-weight: 600;
+  margin-bottom: 20px;
+`
+const Table = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+`
+const Side1 = styled.div`
+  display: flex;
+`
+const Side2 = styled.div`
+  display: flex;
+`
+
+const TableTable = styled.table`
+  justify-content: space-between;
+  margin: 20px 0px;
+  color: gray;
+  font-size: 14px;
+`
+const TBODY = styled.tbody``
+const Tr = styled.tr`
+  font-weight: 100;
+  font-size: 12px;
+  color: #00302e;
+`
+const Th = styled.th`
+  text-align: left;
+  margin-right: 20px;
+`
+const MainItem = styled.div``
+const Main = styled.div``
+
+const Img = styled.img`
+  width: 70px;
+  height: 70px;
+`
+const Title = styled.div``
+
+const Remove = styled.div``
 
 function Dashboard() {
   const {
@@ -150,16 +194,22 @@ function Dashboard() {
     cart,
     closeCart,
     inCart,
-    closeOrder,
-    order,
     payment,
     openPayment,
     closePayment,
+    orderStore,
+    openOrderStore,
+    closeOrderStore,
   } = useGlobalContext()
 
   const handleCheckout = () => {
     closeCart()
     openPayment()
+  }
+
+  const handlePayment = () => {
+    closePayment()
+    openOrderStore()
   }
 
   return (
@@ -231,7 +281,7 @@ function Dashboard() {
               {inCart.map((eachCartItem, index) => {
                 return (
                   <>
-                    <MainDiv>
+                    <MainDiv key={eachCartItem.id}>
                       <CartItem
                         eachCartItem={eachCartItem}
                         key={eachCartItem.id}
@@ -274,7 +324,7 @@ function Dashboard() {
                   <Input placeholder='Exp Date' />
                   <Input placeholder='CVV/CVV2' />
                   <Input placeholder='Card Pin' />
-                  <Button>Make Payment</Button>
+                  <Button onClick={handlePayment}>Make Payment</Button>
                 </CheckOutMain>
               </MainDiv>
             </WhiteSideContainer>
@@ -284,19 +334,42 @@ function Dashboard() {
         ''
       )}
 
-      {order.modal ? (
+      {orderStore.modal ? (
         <DOverLay>
           <OverLay></OverLay>
           <DOverLayWhite>
             <WhiteSideContainer>
               <CloseDiv>
                 <Close
-                  onClick={closeOrder}
+                  onClick={closeOrderStore}
                   style={{ color: '#00302e', cursor: 'pointer' }}
                 />
               </CloseDiv>
               <MainDiv>
-                <CheckOutMain>See Your Orders Status Here!</CheckOutMain>
+                <CheckOutMain>
+                  <Order>Your Orders</Order>
+                  <>
+                    {/* <TableTable>
+                      <TBODY>
+                        <Tr>
+                          <Th>Item</Th>
+                          <Th>Qty</Th>
+                          <Th>Price</Th>
+                          <Th>Status</Th>
+                        </Tr>
+                      </TBODY> */}
+
+                    {orderStore &&
+                      inCart.map((displayOrder, index) => (
+                        <OrderItem
+                          displayOrder={displayOrder}
+                          key={displayOrder.id}
+                          index={index}
+                        />
+                      ))}
+                    {/* </TableTable> */}
+                  </>
+                </CheckOutMain>
               </MainDiv>
             </WhiteSideContainer>
           </DOverLayWhite>

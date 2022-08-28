@@ -3,12 +3,22 @@ import React, { useState, useContext } from 'react'
 const AppContext = React.createContext()
 
 const AppProvider = ({ children }) => {
+  const [inCart, setInCart] = useState([])
+
+  // const newArray = [...inCart]
+  // const [orderArray, setOrderArray] = useState([...inCart])
+
+  // console.log(inCart)
+  // console.log(newArray)
+  // console.log(orderArray)
+
   const [toggle, setToggle] = useState({ modal: false, item: null })
   const [order, setOrder] = useState({ modal: false, item: null })
   const [cart, setCart] = useState({ modal: false, item: null })
+
   const [payment, setPayment] = useState({ modal: false, item: null })
-  
-  const [inCart, setInCart] = useState([])
+
+  const [orderStore, setOrderStore] = useState({ modal: false, item: null })
 
   const openModal = (index) => {
     setToggle({ modal: true, item: index })
@@ -27,8 +37,9 @@ const AppProvider = ({ children }) => {
   }
 
   // Handle Cart
-  const addToCart = (eachOfTwelve) => {
-    inCart.push(eachOfTwelve)
+  const addToCart = (detailToCart) => {
+    // setInCart(inCart.slice().push(eachOfTwelve))
+    inCart.push(detailToCart)
   }
 
   const openCart = (index) => {
@@ -45,6 +56,12 @@ const AppProvider = ({ children }) => {
     setPayment({ ...cart, modal: false })
   }
 
+  const openOrderStore = () => {
+    setOrderStore({ ...orderStore, modal: true })
+  }
+  const closeOrderStore = () => {
+    setOrderStore({ ...orderStore, modal: false })
+  }
   return (
     <AppContext.Provider
       value={{
@@ -63,6 +80,10 @@ const AppProvider = ({ children }) => {
         payment,
         openPayment,
         closePayment,
+        orderStore,
+        openOrderStore,
+        closeOrderStore,
+        newArray,
       }}
     >
       {children}

@@ -117,14 +117,15 @@ const CardItem = ({ eachContent }) => {
   const { name, img, desc, price, time, avai } = eachContent
 
   const { closeModal, addToCart, openCart } = useGlobalContext()
+  const [count, setCount] = useState(1)
 
   const handleClick = () => {
     closeModal()
     openCart()
-    addToCart(eachContent)
+    const detailToCart = { ...eachContent, count }
+    addToCart(detailToCart)
+    console.log((eachContent, count))
   }
-
-  const [count, setCount] = useState(1)
 
   const confirmNum = (count) => {
     if (count < 1) {
@@ -177,7 +178,7 @@ const CardItem = ({ eachContent }) => {
             </QuaIncDecWrap>
           </QuaIncDec>
           <BUTTONWRAP>
-            <BUTTON onClick={handleClick}>Add to cart</BUTTON>
+            <BUTTON onClick={() => handleClick(count)}>Add to cart</BUTTON>
           </BUTTONWRAP>
         </LastSectionWrapper>
       </LastSection>

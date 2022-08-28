@@ -57,6 +57,8 @@ const Row3UnitPrice = styled.div`
 `
 const Row4SubTotal = styled.div`
   margin-right: 20px;
+  color: red;
+  font-size: 14px;
 `
 const Total = styled.div`
   display: flex;
@@ -65,16 +67,17 @@ const Total = styled.div`
   font-weight: 700;
   justify-content: right;
 `
-const CartItem = ({ eachCartItem, index }) => {
-  const { inCart, setInCart } = useGlobalContext()
+const OrderItem = ({ displayOrder, index }) => {
+  const { inCart, setInCart, newOrderArray, setNewOrderArray, newArray } =
+    useGlobalContext()
 
   const handleRemove = () => {
     // First copy the array to a new array using inCart.slice()
-    let array = inCart.slice()
+    let array = newOrderArray.slice()
     // Now call splice on the array
     array.splice(index, 1)
     // Set the State to the array
-    setInCart(array)
+    setNewOrderArray(array)
 
     // Another way to go though not the best
     // setInCart(array.filter((item) => item.id !== eachCartItem.id))
@@ -85,22 +88,20 @@ const CartItem = ({ eachCartItem, index }) => {
       <Row1Item>
         <Detail>
           <IMG>
-            <IMAGE src={eachCartItem.img}></IMAGE>
+            <IMAGE src={displayOrder.img}></IMAGE>
           </IMG>
           <Cont>
             <TRemove>
-              <Title>{eachCartItem.name}</Title>
+              <Title>{displayOrder.name}</Title>
               <Remove onClick={handleRemove}>remove</Remove>
             </TRemove>
           </Cont>
         </Detail>
         <Detail>
           <QPTotal>
-            <Row2Qty>{eachCartItem.count}</Row2Qty>
-            <Row3UnitPrice>$ {eachCartItem.price}.00</Row3UnitPrice>
-            <Row4SubTotal>
-              $ {eachCartItem.price * eachCartItem.count}.00
-            </Row4SubTotal>
+            <Row2Qty>{displayOrder.count}</Row2Qty>
+            <Row3UnitPrice>$ {displayOrder.price}.00</Row3UnitPrice>
+            <Row4SubTotal>Cooking...</Row4SubTotal>
           </QPTotal>
         </Detail>
       </Row1Item>
@@ -108,4 +109,4 @@ const CartItem = ({ eachCartItem, index }) => {
   )
 }
 
-export default CartItem
+export default OrderItem
