@@ -72,15 +72,12 @@ const OrderItem = ({ displayOrder, index }) => {
     useGlobalContext()
 
   const handleRemove = () => {
-    // First copy the array to a new array using inCart.slice()
-    let array = newOrderArray.slice()
-    // Now call splice on the array
-    array.splice(index, 1)
-    // Set the State to the array
-    setNewOrderArray(array)
+    
+    let array = inCart.slice()
 
-    // Another way to go though not the best
-    // setInCart(array.filter((item) => item.id !== eachCartItem.id))
+    array.splice(index, 1)
+
+    setNewOrderArray(array)
   }
 
   return (

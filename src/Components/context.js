@@ -5,7 +5,7 @@ const AppContext = React.createContext()
 const AppProvider = ({ children }) => {
   const [inCart, setInCart] = useState([])
 
-  // const newArray = [...inCart]
+  const newArray = [...inCart]
   // const [orderArray, setOrderArray] = useState([...inCart])
 
   // console.log(inCart)
