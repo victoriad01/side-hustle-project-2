@@ -67,17 +67,26 @@ const Total = styled.div`
   font-weight: 700;
   justify-content: right;
 `
-const OrderItem = ({ displayOrder, index }) => {
-  const { inCart, setInCart, newOrderArray, setNewOrderArray, newArray } =
-    useGlobalContext()
+const OrderItem = ({ displayOrder, index, item, setter }) => {
+  const {
+    inCart,
+    setInCart,
+    newOrderArray,
+    orderArray,
+    setOrderArray,
+    setNewOrderArray,
+    newArray,
+  } = useGlobalContext()
+  console.log(displayOrder)
 
   const handleRemove = () => {
-    
-    let array = inCart.slice()
-
+    let array = item.slice()
     array.splice(index, 1)
+    setter(array)
 
-    setNewOrderArray(array)
+    if (array.length === 0) {
+      setInCart([])
+    }
   }
 
   return (

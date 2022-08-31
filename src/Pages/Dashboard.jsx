@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import SideBar from '../Components/SideBar'
 import Ariikemi from '../Pictures/40w 1.png'
@@ -200,7 +200,15 @@ function Dashboard() {
     orderStore,
     openOrderStore,
     closeOrderStore,
+    orderArray,
+    setOrderArray,
   } = useGlobalContext()
+
+  const [item, setItem] = useState()
+
+  useEffect(() => {
+    setItem(inCart)
+  }, [inCart])
 
   const handleCheckout = () => {
     closeCart()
@@ -360,11 +368,13 @@ function Dashboard() {
                       </TBODY> */}
 
                     {orderStore &&
-                      inCart.map((displayOrder, index) => (
+                      item.map((displayOrder, index) => (
                         <OrderItem
+                          setter={setItem}
                           displayOrder={displayOrder}
                           key={displayOrder.id}
                           index={index}
+                          item={item}
                         />
                       ))}
                     {/* </TableTable> */}

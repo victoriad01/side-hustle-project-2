@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext,useEffect } from 'react'
 
 const AppContext = React.createContext()
 
@@ -6,11 +6,20 @@ const AppProvider = ({ children }) => {
   const [inCart, setInCart] = useState([])
 
   const newArray = [...inCart]
-  // const [orderArray, setOrderArray] = useState([...inCart])
 
-  // console.log(inCart)
-  // console.log(newArray)
-  // console.log(orderArray)
+
+  const [orderArray, setOrderArray] = useState([])
+    useEffect(() => {
+      setOrderArray([...inCart])
+    }, [inCart])
+
+    useEffect(()=>{
+      console.log("orderArrayChaged")
+    },[orderArray])
+
+  console.log(inCart)
+  console.log(newArray)
+  console.log(orderArray)
 
   const [toggle, setToggle] = useState({ modal: false, item: null })
   const [order, setOrder] = useState({ modal: false, item: null })
@@ -84,6 +93,8 @@ const AppProvider = ({ children }) => {
         openOrderStore,
         closeOrderStore,
         newArray,
+        orderArray,
+        setOrderArray
       }}
     >
       {children}
